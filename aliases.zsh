@@ -15,8 +15,8 @@ alias cd....='cd ../../..'
 # nvim alias
 alias vim='nvim'
 
-# filetype indicators
-alias ls='ls -F'
+# lsd
+alias ls='lsd'
 
 # git top level
 alias cg='cd `git rev-parse --show-toplevel`'
