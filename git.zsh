@@ -1,3 +1,5 @@
+# lazygit
+alias gg="lazygit"
 
 # git top level
 alias cg='cd `git rev-parse --show-toplevel`'
