@@ -1,0 +1,3 @@
+# zsh
+
+use theme bira
