@@ -15,6 +15,7 @@ function mkcd() { mkdir $1 && cd $1 }
 
 # nvim alias
 alias vim='nvim'
+alias vi='nvim'
 
 # lsd
 alias ls='lsd'
