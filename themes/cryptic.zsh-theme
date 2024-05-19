@@ -45,7 +45,6 @@ cryptic_get_prompt() {
 	echo -n "%(?.%f.%F{1})"  # if retcode == 0 ? reset : red
 	echo -n "─%f" # @ symbol color=grey
 
-	echo -n "%F{12}%m%f" # host name color=blue
 
 	# $(hostname) = Nitro-1
 	# $(whoami) = thederpykrafter
@@ -55,8 +54,10 @@ cryptic_get_prompt() {
 
 	echo -n "%(?.%f.%F{1})"  # if retcode == 0 ? reset : red
 	echo -n ${(l:COLUMNS - cryptic_divider_length::─:)} # divider
-	echo -n "┐"
+	
+	echo -n "%F{12}%m%f" # host name color=blue
 
+	echo -n "┐"
 	echo  # new line
 
 	echo -n "│%f" # │ symbol
