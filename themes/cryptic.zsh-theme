@@ -1,18 +1,29 @@
 #!/usr/bin/env zsh
 
-#======================================================================#
-#    _        _                _ _ _         _____ _                   #
-#   /_\  _ __| |_  _ _ ___  __| (_) |_ ___  |_   _| |_  ___ _ __  ___  #
-#  / _ \| '_ \ ' \| '_/ _ \/ _` | |  _/ -_)   | | | ' \/ -_) '  \/ -_) #
-# /_/ \_\ .__/_||_|_| \___/\__,_|_|\__\___|   |_| |_||_\___|_|_|_\___| #
-#       |_|                                                            #
-#                                                                      #
-#                       Aphrodite Terminal Theme                       #
-#                 by Sergei Kolesnikov a.k.a. win0err                  #
-#                                                                      #
-#                        https://kolesnikov.se                         #
-#                                                                      #
-#======================================================================#
+
+
+#                                                                                     #
+#         ,gggg,                                                                      #
+#       ,88"""Y8b,                                         I8                         #
+#      d8"     `Y8                                         I8                         #
+#     d8'   8b  d8                                      88888888   gg                 #
+#    ,8I    "Y88P'                                         I8      ""                 #
+#    I8'             ,gggggg,   gg     gg   gg,gggg,       I8      gg      ,gggg,     #
+#    d8              dP""""8I   I8     8I   I8P"  "Yb      I8      88     dP"  "Yb    #
+#    Y8,            ,8'    8I   I8,   ,8I   I8'    ,8i    ,I8,     88    i8'          #
+#    `Yba,,_____,  ,dP     Y8, ,d8b, ,d8I  ,I8 _  ,d8'   ,d88b,  _,88,_ ,d8,_    _    #
+#      `"Y8888888  8P      `Y8 P""Y88P"888 PI8 YY88888P  8P""Y8  8P""Y8 P""Y8888PP    #
+#                                    ,d8I'  I8                                        #
+#                                  ,dP'8I   I8                                        #
+#                                 ,8"  8I   I8                                        #
+#                                 I8   8I   I8                                        #
+#                                 `8, ,8I   I8                                        #
+#                                  `Y8P"    I8                                        #
+#                                                                                     #
+#                 https://github.com/thederpykrafter/cryptic.zsh-theme                #
+#                                                                                     #
+#                              huge insporation from                                  #
+#                 https://github.com/win0err/aphrodite-terminal-theme                 #
 
 
 export VIRTUAL_ENV_DISABLE_PROMPT=false
