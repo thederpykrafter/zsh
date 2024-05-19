@@ -28,7 +28,7 @@ aphrodite_get_prompt() {
 	echo -n "%F{8}@"
 	echo -n "%F{12}%m"
 	echo -n "%F{8}:"
-	echo -n "%f%3~"
+	echo -n "%f%~"
 	echo -n " "
 
 	local git_branch=$(git --no-optional-locks rev-parse --abbrev-ref HEAD 2> /dev/null)
