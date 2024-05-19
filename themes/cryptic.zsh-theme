@@ -83,7 +83,8 @@ cryptic_get_rprompt() {
     # time
 	if [[ -v CRYPTIC_THEME_SHOW_TIME ]]; then
 		# time format
-		echo -n "%F{8}[%D{%H:%M:%S}]%f"
+		#echo -n "%F{8}[%D{%L:%M:%S}]%f"
+		echo -n "%F{8}[%D{%r}]%f" # 12hr time with am/pm
 	fi
 }
 
