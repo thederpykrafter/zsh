@@ -1,4 +1,4 @@
-
+ZSH_THEME="aphrodite"
 # cls
 alias cls='clear'
 
