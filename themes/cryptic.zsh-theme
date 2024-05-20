@@ -57,9 +57,12 @@ cryptic_get_prompt() {
 
   # host
 	echo -n "%F{12}%m%f" # host color=blue
+
+  echo -n "%(?.%f.%F{1})" # if retcode == 0 ? reset : red
 	echo -n "┐"
 
 	echo  # new line
+
 	echo -n "│%f"
 	# directory path
 	echo -n "%f%3~" # set depth with %<number>~
