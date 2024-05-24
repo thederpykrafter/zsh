@@ -11,11 +11,11 @@ alias gitinit='git init && git add -A && git commit -m "init"'
 alias gitignore='nvim .gitignore'
 
 # git clone
-gitclone() {
+function gitclone() {
 	git clone git@github.com:$1.git $2
 }
 
 # my git
-mygit() {
+function mygit() {
 	git clone git@github.com:thederpykrafter/$1.git $2
 }
