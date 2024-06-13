@@ -11,4 +11,10 @@ else
 
     # add app images to path
     export PATH=$PATH:~/Applications
+
+    # nvm
+    [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+    source /usr/share/nvm/nvm.sh
+    source /usr/share/nvm/bash_completion
+    source /usr/share/nvm/install-nvm-exec
 fi
