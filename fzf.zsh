@@ -11,5 +11,5 @@ function fzcd() { cd $(fzd $*) }
 # find projects
 function proj() {
   cd
-  fzcd Dev/
+  fzcd Dev/ --maxdepth 2
 }
