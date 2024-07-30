@@ -8,3 +8,5 @@ alias cls='clear'
 
 # reload zsh
 alias reload='source ~/.zshrc'
+
+alias get-repos='cd ~ && ./Dev/sh/get-repos/get-repos.sh'

@@ -9,4 +9,7 @@ function fzd() { fd . $1 --type d | fzf }
 function fzcd() { cd $(fzd $1) }
 
 # find projects
-function proj() { fzcd ~/Dev/ }
+function proj() {
+  cd
+  fzcd Dev/
+}
