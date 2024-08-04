@@ -13,3 +13,8 @@ function proj() {
   cd
   fzcd Dev/ --maxdepth 2
 }
+
+# find my .zsh files
+function fzsh() {
+  cd $ZSH_CUSTOM && vi $(fzf)
+}
