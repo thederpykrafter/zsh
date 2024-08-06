@@ -19,3 +19,8 @@ function gitclone() {
 function mygit() {
 	git clone git@github.com:thederpykrafter/$1.git $2
 }
+
+# fuzzy search github repos
+function lazyclone() {
+  gitclone $(gh repo list | fzf | awk '{print $1}')
+}
