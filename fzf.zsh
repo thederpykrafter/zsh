@@ -18,3 +18,8 @@ function proj() {
 function fzsh() {
   cd $ZSH_CUSTOM && vi $(fzf)
 }
+
+# open vim with fzf
+alias vifz='nvim $(fzf)'
+alias vimfz='nvim $(fzf)'
+alias nvimfz='nvim $(fzf)'
