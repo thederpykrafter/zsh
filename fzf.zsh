@@ -16,7 +16,7 @@ function proj() {
 
 # find my .zsh files
 function fzsh() {
-  cd $ZSH_CUSTOM && vi $(fzf)
+  cd $ZSH_CUSTOM && nvim $(fzf)
 }
 
 # open vim with fzf
