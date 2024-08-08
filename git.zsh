@@ -24,3 +24,5 @@ function mygit() {
 function lazyclone() {
   gitclone $(gh repo list | fzf | awk '{print $1}')
 }
+
+alias nogit="~/Dev/sh/nogit/nogit.sh"
