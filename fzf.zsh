@@ -22,7 +22,12 @@ function proj() { # find projects
 
 
 function fzsh() { # find my .zsh files
-  cd $ZSH_CUSTOM && nvim $(fzf)
+  prev=$PWD
+  file=$(cd $ZSH_CUSTOM && fzf || cd "$prev")
+
+  if [ "$file" != "" ]; then
+    nvim $file
+  fi
 }
 
 # open vim with fzf
