@@ -16,7 +16,6 @@ function fzcd() { # find dir and cd
 
 }
 
-
 function proj() { # find projects
   cd ~/Dev && fzcd --maxdepth 2
 }
