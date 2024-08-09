@@ -21,7 +21,7 @@ function proj() { # find projects
   dir=$(cd ~/Dev/ && fzd --maxdepth 2)
 
   if [ "$dir" != "" ]; then
-    cd $dir
+    cd ~/Dev/$dir
   else
     cd $prev
   fi
