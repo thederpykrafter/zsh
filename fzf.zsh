@@ -2,20 +2,27 @@
 export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border'
 export FZF_DEFAULT_COMMAND="fd --type f"
 
-# find dir
-function fzd() { fd . $* --type d | fzf }
+function fzd() { fd . $* --type d | fzf } # find dir
 
-# find dir and cd
-function fzcd() { cd $(fzd $*) }
+function fzcd() { # find dir and cd
+  prev=$PWD
+  
+  if [ "$1" != "" ]; then
+    # cd into $1 first to shorten path in fzf
+    cd $1 && shift && cd $(fzd $@ || echo "$prev")
+  else
+    cd $(fzd || echo "$prev")
+  fi
 
-# find projects
-function proj() {
-  cd
-  fzcd Dev/ --maxdepth 2
 }
 
-# find my .zsh files
-function fzsh() {
+
+function proj() { # find projects
+  cd ~/Dev && fzcd --maxdepth 2
+}
+
+
+function fzsh() { # find my .zsh files
   cd $ZSH_CUSTOM && nvim $(fzf)
 }
 
