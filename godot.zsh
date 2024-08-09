@@ -1,1 +1,1 @@
-alias godot='godot --rendering-driver opengl3'
+alias godot='godot --rendering-driver opengl3 &'
