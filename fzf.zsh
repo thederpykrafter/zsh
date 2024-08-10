@@ -22,6 +22,9 @@ function proj() { # find projects
 
   if [ "$dir" != "" ]; then
     cd ~/Dev/$dir
+    if [ -d .git ]; then
+      git status
+    fi
   else
     cd $prev
   fi
