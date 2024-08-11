@@ -36,7 +36,7 @@ function proj() { # find projects
 
 function fzsh() { # find my .zsh files
   prev=$PWD
-  file=$(cd $ZSH_CUSTOM && fzf || cd "$prev")
+  file=$(cd $ZSH_CUSTOM && fzf --query "$*" || cd "$prev")
 
   if [ "$file" != "" ]; then
     cd $ZSH_CUSTOM && nvim $file
