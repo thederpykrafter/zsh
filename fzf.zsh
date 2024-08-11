@@ -37,10 +37,11 @@ function proj() { # find projects
 
 function fzsh() { # find my .zsh files
   prev=$PWD
-  file=$(cd $ZSH_CUSTOM && fzf --query "$*" || cd "$prev")
+  cd $ZSH_CUSTOM 
+  file=$(fzf --query "$*" || cd "$prev")
 
   if [ "$file" != "" ]; then
-    cd $ZSH_CUSTOM && nvim $file
+    nvim $file
     git remote update
     git status
   fi
