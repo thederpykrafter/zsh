@@ -18,7 +18,7 @@ function fzcd() { # find dir and cd
 
 function proj() { # find projects
   prev=$PWD
-  dir=$(cd ~/Dev/ && fzd --maxdepth 2)
+  dir=$(cd ~/Dev/ && fd . --maxdepth 2 --type d | fzf --query "$*" --header="select a project to cd into" --preview 'ls {}')
 
   if [ "$dir" != "" ]; then
     cd ~/Dev/$dir
