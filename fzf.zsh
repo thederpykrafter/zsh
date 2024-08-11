@@ -1,5 +1,5 @@
 # global settings
-export FZF_DEFAULT_OPTS="--height 50% --border --preview 'cat {}'"
+export FZF_DEFAULT_OPTS="--height 50% --border --preview 'bat --color "always" --line-range 0:100 {}'"
 export FZF_DEFAULT_COMMAND="fd --type f"
 
 function fzd() { fd . $* --type d | fzf } # find dir
