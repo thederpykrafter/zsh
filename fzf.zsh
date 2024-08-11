@@ -42,6 +42,7 @@ function fzsh() { # find my .zsh files
   if [ "$file" != "" ]; then
     cd $ZSH_CUSTOM && nvim $file
     git remote update
+    git status
   fi
 
   cd $prev
