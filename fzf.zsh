@@ -39,6 +39,8 @@ function fzsh() { # find my .zsh files
     cd $ZSH_CUSTOM && nvim $file
     git remote update
   fi
+
+  cd $prev
 }
 
 # open vim with fzf
