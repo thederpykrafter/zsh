@@ -26,6 +26,7 @@ function proj() { # find projects
   if [ "$dir" != "" ]; then
     cd ~/Dev/$dir
     if [ -d .git ]; then
+      git remote update
       git status
     fi
   else
