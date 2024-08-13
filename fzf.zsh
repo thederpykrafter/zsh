@@ -1,3 +1,5 @@
+source <(fzf --zsh)
+
 # global settings
 export FZF_DEFAULT_OPTS="\
   --height 50% --border --layout='reverse-list' \
