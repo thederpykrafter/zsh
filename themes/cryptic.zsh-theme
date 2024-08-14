@@ -30,15 +30,13 @@ export VIRTUAL_ENV_DISABLE_PROMPT=false
 setopt PROMPT_SUBST
 
 cryptic_get_prompt() {
-	# virtual environment
-  if [[ -v VIRTUAL_ENV ]]; then
-		echo -n "%F{7}["$(basename "$VIRTUAL_ENV")"]%f " 
-	fi
-
   # get length of username + hostname + 2 corners + 1 dash + 1 to prevent resizing issues 
 	cryptic_user_length=$(echo -n $(whoami) | wc -c)
 	cryptic_hostname_length=$(echo -n $(hostname) | wc -c)
 	cryptic_divider_length=cryptic_user_length+cryptic_hostname_length+4
+  if [[ ! $VIRTUAL_ENV == "" ]]; then
+	  cryptic_divider_length=cryptic_user_length+cryptic_hostname_length+9
+  fi
 
   # corner before user
 	echo -n "%(?.%f.%F{1})"  # if retcode == 0 ? reset : red
@@ -50,6 +48,11 @@ cryptic_get_prompt() {
   # dash between user & host
 	echo -n "%(?.%f.%F{1})"  # if retcode == 0 ? reset : red
 	echo -n "─%f"
+
+	# virtual environment
+  if [[ -v VIRTUAL_ENV ]]; then
+		echo -n "%F{7}["$(basename "$VIRTUAL_ENV")"]%f" 
+	fi
 
   # line between user and host
 	echo -n "%(?.%f.%F{1})"  # if retcode == 0 ? reset : red
