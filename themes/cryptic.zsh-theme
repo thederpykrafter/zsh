@@ -51,7 +51,7 @@ cryptic_get_prompt() {
 
 	# virtual environment
   if [[ -v VIRTUAL_ENV ]]; then
-		echo -n "%F{7}["$(basename "$VIRTUAL_ENV")"]%f" 
+		echo -n "[%F{5}"$(basename "$VIRTUAL_ENV")"%f]" 
 	fi
 
   # line between user and host
