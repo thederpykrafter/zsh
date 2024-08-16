@@ -37,6 +37,21 @@ function proj() { # find projects
   fi
 }
 
+function conf() { # find projects
+  prev=$PWD
+  dir=$(cd ~/.config/ && fd . --maxdepth 1 --type d | fzf --query "$*" --header="select to cd" --preview 'ls {}')
+
+  if [ "$dir" != "" ]; then
+    cd ~/.config/$dir
+    if [ -d .git ]; then
+      git remote update
+      git status
+    fi
+  else
+    cd $prev
+  fi
+}
+
 
 function fzsh() { # find my .zsh files
   prev=$PWD
