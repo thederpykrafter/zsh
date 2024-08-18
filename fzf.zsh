@@ -2,7 +2,7 @@ source <(fzf --zsh)
 
 # global settings
 export FZF_DEFAULT_OPTS="\
-  --height 50% --border --layout='reverse-list' \
+  --border --layout='reverse-list' \
   --preview 'bat --color "always" --line-range 0:100 {}' \
   --pointer='->' --header='<C-c> or <ESC> to exit' \
   --cycle"
