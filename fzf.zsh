@@ -3,7 +3,7 @@ source <(fzf --zsh)
 # global settings
 export FZF_DEFAULT_OPTS="\
   --border --layout='reverse-list' \
-  --preview 'bat --color "always" --line-range 0:100 {}' \
+  --preview 'bat --color "always" --line-range 0:300 {}' \
   --pointer='->' --header='<C-c> or <ESC> to exit' \
   --cycle"
 export FZF_DEFAULT_COMMAND="fd --type f"
