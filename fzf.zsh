@@ -68,5 +68,5 @@ function fzsh() { # find my .zsh files
 }
 
 # open vim with fzf
-alias vifz='nvim $(fzf)'
-alias fzvi='nvim $(fzf)'
+alias vifz='file=$(fzf) && [[ -n $file ]] && nvim $file'
+alias fzvi='file=$(fzf) && [[ -n $file ]] && nvim $file'
