@@ -11,6 +11,6 @@ alias reload='source ~/.zshrc'
 
 alias get-repos='cd ~ && ./Dev/sh/get-repos/get-repos.sh'
 
-alias work-sched='cd ~ && ./Dev/sh/work-sched/schedule.sh'
+alias work-sched='cd ~ && ./Dev/sh/work-sched/sched'
 
 ~/.oh-my-zsh/custom/image.sh
