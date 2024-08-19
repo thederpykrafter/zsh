@@ -9,8 +9,8 @@ alias cls='clear'
 # reload zsh
 alias reload='source ~/.zshrc'
 
-alias get-repos='cd ~ && ./Dev/sh/get-repos/get-repos.sh'
+alias get-repos='~/Dev/sh/get-repos/get-repos.sh'
 
-alias sched='cd ~ && ./Dev/sh/work-sched/sched'
+alias sched='~/Dev/sh/work-sched/sched'
 
 ~/.oh-my-zsh/custom/image.sh
