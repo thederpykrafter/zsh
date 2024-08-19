@@ -34,7 +34,7 @@ cryptic_get_prompt() {
 	cryptic_user_length=$(echo -n $(whoami) | wc -c)
 	cryptic_hostname_length=$(echo -n $(hostname) | wc -c)
 	cryptic_divider_length=cryptic_user_length+cryptic_hostname_length+4
-  if [[ -v $VIRTUAL_ENV ]]; then
+  if [[ -n $VIRTUAL_ENV ]]; then
 	  cryptic_divider_length=cryptic_user_length+cryptic_hostname_length+9
   fi
 
