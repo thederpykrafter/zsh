@@ -6,6 +6,9 @@ alias cls='clear'
 
 # reload zsh
 alias reload='source $ZSH_CUSTOM/.zshrc'
+if [ -d ~/.termux ]; then
+  alias reload='termux-reload-settings && source $ZSH_CUSTOM/.zshrc'
+fi
 
 alias get-repos='~/Dev/sh/get-repos/get-repos.sh'
 
