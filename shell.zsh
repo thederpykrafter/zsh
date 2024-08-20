@@ -1,5 +1,3 @@
-plugins=(git)
-
 ZSH_THEME="cryptic"
 CRYPTIC_THEME_SHOW_TIME=true
 
@@ -7,7 +5,7 @@ CRYPTIC_THEME_SHOW_TIME=true
 alias cls='clear'
 
 # reload zsh
-alias reload='source ~/.zshrc'
+alias reload='source $ZSH_CUSTOM/.zshrc'
 
 alias get-repos='~/Dev/sh/get-repos/get-repos.sh'
 
