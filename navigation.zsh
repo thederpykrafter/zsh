@@ -22,3 +22,4 @@ alias ls='lsd'
 
 # vim like exit
 alias :q='exit'
+alias :wq='exit'
