@@ -5,6 +5,9 @@ if [[ -f /data/data/com.termux/files/home/.termux/termux.properties ]]; then
 
     # termux go path
     export PATH=$PATH:/data/data/com.termux/files/home/go/bin
+
+    # npm global
+    export PATH=~/.npm_global/bin:$PATH
 else
     # go path
     export PATH=$PATH:/usr/local/go/bin
