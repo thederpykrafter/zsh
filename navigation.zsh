@@ -1,5 +1,13 @@
 
 # cd
+function cd() {
+  builtin cd $1
+  if [ -f env/bin/activate ]; then
+    source env/bin/activate
+  elif command -v deactivate &> /dev/null; then
+    deactivate
+  fi
+}
 alias cd..='cd ..'
 alias cd...='cd ../..'
 alias cd....='cd ../../..'
