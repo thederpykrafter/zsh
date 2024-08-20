@@ -17,4 +17,7 @@ else
     source /usr/share/nvm/nvm.sh
     source /usr/share/nvm/bash_completion
     source /usr/share/nvm/install-nvm-exec
+
+    # opam
+    [[ ! -r /home/thederpykrafter/.opam/opam-init/init.zsh ]] || source /home/thederpykrafter/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 fi
