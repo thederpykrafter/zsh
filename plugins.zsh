@@ -13,3 +13,5 @@ if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-autopair ]; then
   git clone https://github.com/hlissner/zsh-autopair $ZSH_CUSTOM/plugins/zsh-autopair
   source ~/.zshrc
 fi
+
+[[ ! -L ~/.zshrc ]] && rm -rf ~/.zshrc && ln -s ~/.oh-my-zsh/custom/.zshrc ~/
