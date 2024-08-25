@@ -41,4 +41,8 @@ function lazyclone() {
   gitclone $(gh repo list | awk '{print $1}' | sed "s/thederpykrafter\///" | fzf --query "$*" --preview "")
 }
 
+function gittemplate() {
+  gh repo create $1 --public --clone --template $2
+}
+
 alias nogit="~/Dev/sh/nogit/nogit.sh"
