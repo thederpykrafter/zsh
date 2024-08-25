@@ -4,7 +4,7 @@ if [[ -f /data/data/com.termux/files/home/.termux/termux.properties ]]; then
     export dev="/data/data/com.termux/files/home/storage/shared/Documents/Dev/"
 
     # termux go path
-    export PATH=$PATH:/data/data/com.termux/files/home/go/bin
+    export PATH=$PATH:~/go/bin
 
     # npm global
     export PATH=~/.npm_global/bin:$PATH
