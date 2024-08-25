@@ -42,7 +42,13 @@ function lazyclone() {
 }
 
 function gittemplate() {
-  gh repo create $1 --public --clone --template $2
+  if [ ! $# -eq 0 ]; then
+    gh repo create $1 --public --clone --template $2
+  else
+    echo "Usage:"
+    echo "gittemplate [new-repo] [template]"
+    return 1
+  fi
 }
 
 alias nogit="~/Dev/sh/nogit/nogit.sh"
