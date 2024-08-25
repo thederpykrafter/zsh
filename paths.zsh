@@ -11,6 +11,7 @@ if [[ -f /data/data/com.termux/files/home/.termux/termux.properties ]]; then
 else
     # go path
     export PATH=$PATH:/usr/local/go/bin
+    export PATH=$PATH:~/go/bin
 
     # add app images to path
     export PATH=$PATH:~/Applications
