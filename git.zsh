@@ -38,7 +38,7 @@ function mygit() {
 
 # fuzzy search github repos
 function lazyclone() {
-  gitclone $(gh repo list | fzf | awk '{print $1}')
+  gitclone $(gh repo list | awk '{print $1}' | sed "s/thederpykrafter\///" | fzf --query "$*" --preview "")
 }
 
 alias nogit="~/Dev/sh/nogit/nogit.sh"
