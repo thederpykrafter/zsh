@@ -27,4 +27,6 @@ function clean_vim() {
 alias godot='godot --rendering-driver opengl3 &'
 
 ~/.oh-my-zsh/custom/image.sh
-ansiweather
+if [ -f ~/.ansiweatherrc ]; then
+  ansiweather
+fi
