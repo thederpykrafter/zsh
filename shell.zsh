@@ -4,8 +4,12 @@ CRYPTIC_THEME_SHOW_TIME=true
 function update() {
   if command -v yay &> /dev/null; then
     yay -Syu --noconfirm
+  elif command -v nala &> /dev/null; then
+    nala update && nala upgrade -y
   elif command -v pkg &> /dev/null; then
     pkg update -y && pkg upgrade -y
+  elif command -v apt &> /dev/null; then
+    apt update -y && apt upgrade -y
   fi
 }
 
