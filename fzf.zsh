@@ -56,7 +56,7 @@ function conf() { # find projects
 function fzsh() { # find my .zsh files
   prev=$PWD
   cd $ZSH_CUSTOM 
-  file=$(fd --type f --maxdepth 3 | fzf --query "$*" || cd "$prev")
+  file=$(fd -H | grep -v ".git" | fzf --query "$*" || cd "$prev")
 
   if [ "$file" != "" ]; then
     nvim $file
