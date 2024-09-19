@@ -1,6 +1,14 @@
 ZSH_THEME="cryptic"
 CRYPTIC_THEME_SHOW_TIME=true
 
+function update() {
+  if command -v yay &> /dev/null; then
+    yay -Syu --noconfirm
+  elif command -v pkg &> /dev/null; then
+    pkg update -y && pkg upgrade -y
+  fi
+}
+
 # cls
 alias cls='clear'
 
