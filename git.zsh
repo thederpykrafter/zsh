@@ -44,6 +44,7 @@ function lazyclone() {
 function gittemplate() {
   if [ ! $# -eq 0 ]; then
     gh repo create $1 --public --clone --template $2
+    cd $1
   else
     echo "Usage:"
     echo "gittemplate [new-repo] [template]"
