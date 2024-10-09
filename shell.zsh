@@ -13,6 +13,8 @@ function update() {
   fi
 }
 
+alias setup="~/Dev/sh/universal-setup/setup.sh"
+
 # cls
 alias cls='clear'
 
