@@ -24,7 +24,7 @@ function fzcd() { # find dir and cd
 
 function proj() { # find projects
   prev=$PWD
-  dir=$(cd ~/Dev/ && fd . --maxdepth 2 --type d | fzf --query "$*" --header="select to cd" --preview 'ls {}')
+  dir=$(cd ~/Dev/ && fd . --maxdepth 2 --type d --type l | fzf --query "$*" --header="select to cd" --preview 'ls {}')
 
   if [ "$dir" != "" ]; then
     cd ~/Dev/$dir
@@ -39,7 +39,7 @@ function proj() { # find projects
 
 function conf() { # find projects
   prev=$PWD
-  dir=$(cd ~/.config/ && fd . --maxdepth 1 --type d | fzf --query "$*" --header="select to cd" --preview 'ls {}')
+  dir=$(cd ~/.config/ && fd . --maxdepth 1 --type d --type l | fzf --query "$*" --header="select to cd" --preview 'ls {}')
 
   if [ "$dir" != "" ]; then
     cd ~/.config/$dir
