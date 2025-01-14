@@ -12,8 +12,9 @@ function ghinit() {
   repo_name=$(echo $PWD | sed "s/\/home\/thederpykrafter\///" | rev | cut -d / -f1 | rev)
 
   if [ ! -f README.md ]; then
-	  touch README.md
-	  echo "# $repo_name" &> README.md
+    touch README.md
+    echo "# $repo_name" &> README.md
+    [[ -d .git ]] && git add README.md && git commit -m "add README.md"
   fi
 
   if [ ! -d .git ]; then
