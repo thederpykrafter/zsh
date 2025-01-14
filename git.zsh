@@ -29,12 +29,12 @@ alias gitignore='nvim .gitignore'
 
 # git clone
 function gitclone() {
-	git clone git@github.com:$1.git $2
+  git clone git@github.com:$1.git $2
 }
 
 # my git
 function mygit() {
-	git clone git@github.com:thederpykrafter/$1.git $2
+  git clone git@github.com:thederpykrafter/$1.git $2
 }
 
 # fuzzy search github repos
