@@ -16,7 +16,7 @@ export FZF_DEFAULT_OPTS="\
 
 export FZF_DEFAULT_COMMAND="fd --type f"
 
-function fzd() { fd . $* --type d | fzf } # find dir
+function fzd() { fd . $* --type d | fzf --preview 'ls {}'} # find dir
 
 function fzcd() { # find dir and cd
   prev=$PWD
