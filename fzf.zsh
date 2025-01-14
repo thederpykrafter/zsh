@@ -20,7 +20,7 @@ function fzd() { fd . $* --type d | fzf --preview 'ls {}'} # find dir
 
 function fzcd() { # find dir and cd
   prev=$PWD
-  
+
   if [ "$1" != "" ]; then
     # cd into $1 first to shorten path in fzf
     cd $1 && shift && cd $(fzd $PWD $@ || echo "$prev")
@@ -31,7 +31,7 @@ function fzcd() { # find dir and cd
 }
 
 function recent() { # find recently opened dirs
-  if [ ! -d /data/data/com.termux/files ]; 
+  if [ ! -d /data/data/com.termux/files ];
   then
     cd $(dirs -lp | fzf --query "$*" --header="select to return to project" --preview 'ls {}')
   else
@@ -72,7 +72,7 @@ function conf() { # find projects
 
 function fzsh() { # find my .zsh files
   prev=$PWD
-  cd $ZSH_CUSTOM 
+  cd $ZSH_CUSTOM
   file=$(fd -H | grep -v ".git" | fzf --query "$*" || cd "$prev")
 
   if [ "$file" != "" ]; then
