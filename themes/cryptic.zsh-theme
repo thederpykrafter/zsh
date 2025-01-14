@@ -29,70 +29,70 @@
 export VIRTUAL_ENV_DISABLE_PROMPT=false
 setopt PROMPT_SUBST
 
-cryptic_get_prompt() {
-  # get length of username + hostname + 2 corners + 1 dash + 1 to prevent resizing issues 
-	cryptic_user_length=$(echo -n $(whoami) | wc -c)
-	cryptic_hostname_length=$(echo -n $(hostname) | wc -c)
-	cryptic_divider_length=cryptic_user_length+cryptic_hostname_length+4
+function cryptic_get_prompt() {
+  # get length of username + hostname + 2 corners + 1 dash + 1 to prevent resizing issues
+  cryptic_user_length=$(echo -n $(whoami) | wc -c)
+  cryptic_hostname_length=$(echo -n $(hostname) | wc -c)
+  cryptic_divider_length=cryptic_user_length+cryptic_hostname_length+4
   if [[ -n $VIRTUAL_ENV ]]; then
-	  cryptic_divider_length=cryptic_user_length+cryptic_hostname_length+9
+    cryptic_divider_length=cryptic_user_length+cryptic_hostname_length+9
   fi
 
   # corner before user
-	echo -n "%(?.%f.%F{1})"  # if retcode == 0 ? reset : red
-	echo -n "┌%f"
+  echo -n "%(?.%f.%F{1})"  # if retcode == 0 ? reset : red
+  echo -n "┌%f"
 
   # user name
   echo -n "%F{6}%n%f" #color=cyan
 
   # dash between user & host
-	echo -n "%(?.%f.%F{1})"  # if retcode == 0 ? reset : red
-	echo -n "─%f"
+  echo -n "%(?.%f.%F{1})"  # if retcode == 0 ? reset : red
+  echo -n "─%f"
 
-	# virtual environment
+  # virtual environment
   if [[ -v VIRTUAL_ENV ]]; then
-		echo -n "[%F{5}"$(basename "$VIRTUAL_ENV")"%f]" 
-	fi
+    echo -n "[%F{5}"$(basename "$VIRTUAL_ENV")"%f]"
+  fi
 
   # line between user and host
-	echo -n "%(?.%f.%F{1})"  # if retcode == 0 ? reset : red
-	echo -n ${(l:COLUMNS - cryptic_divider_length::─:)}
+  echo -n "%(?.%f.%F{1})"  # if retcode == 0 ? reset : red
+  echo -n ${(l:COLUMNS - cryptic_divider_length::─:)}
 
   # host
-	echo -n "%F{12}%m%f" # host color=blue
+  echo -n "%F{12}%m%f" # host color=blue
 
   # corner after host
   echo -n "%(?.%f.%F{1})" # if retcode == 0 ? reset : red
-	echo -n "─"
-
-	echo  # new line
-
-  # line before Directory
-	echo -n "│%f"
-
-	# directory path
-	echo -n "%f%3~" # set depth with %<number>~
+  echo -n "─"
 
   echo  # new line
-	echo -n "%(?.%f.%F{1})"  # if retcode == 0 ? reset : red
-	# show if user or sudo
-	echo -n "└%F{129}%(!.#.$)%f "  # if is_root_user ? # : $ color=purple
+
+  # line before Directory
+  echo -n "│%f"
+
+  # directory path
+  echo -n "%f%3~" # set depth with %<number>~
+
+  echo  # new line
+  echo -n "%(?.%f.%F{1})"  # if retcode == 0 ? reset : red
+  # show if user or sudo
+  echo -n "└%F{129}%(!.#.$)%f "  # if is_root_user ? # : $ color=purple
 }
 
-cryptic_get_rprompt() {
+function cryptic_get_rprompt() {
   # git branch
-	local git_branch=$(git --no-optional-locks rev-parse --abbrev-ref HEAD 2> /dev/null)
-	if [[ -n "$git_branch" ]]; then
+  local git_branch=$(git --no-optional-locks rev-parse --abbrev-ref HEAD 2> /dev/null)
+  if [[ -n "$git_branch" ]]; then
     # git status
-		local git_status=$(git --no-optional-locks status --porcelain 2> /dev/null | tail -n 1)
-		[[ -n "$git_status" ]] && echo -n "%F{11}" || echo -n "%F{10}"
-		echo -n "‹${git_branch}›%f"
-	fi
+    local git_status=$(git --no-optional-locks status --porcelain 2> /dev/null | tail -n 1)
+    [[ -n "$git_status" ]] && echo -n "%F{11}" || echo -n "%F{10}"
+    echo -n "‹${git_branch}›%f"
+  fi
 
   # timestamp 12hr HH:MM:SS AM/PM
-	if [[ -v CRYPTIC_THEME_SHOW_TIME ]]; then
-		echo -n "%F{243}[%D{%r}]%f"
-	fi
+  if [[ -v CRYPTIC_THEME_SHOW_TIME ]]; then
+    echo -n "%F{243}[%D{%r}]%f"
+  fi
 }
 
 export RPROMPT='$(cryptic_get_rprompt)'
