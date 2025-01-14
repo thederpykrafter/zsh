@@ -22,6 +22,13 @@ function fzcd() { # find dir and cd
 
 }
 
+function recent() { # find recently opened dirs
+  dir=`echo $(dirs) | sed 's/ /\n/g' | fzf --query "$*" --header="select to return to project" --preview '' | sed 's/~//g'`
+  if [ "$dir" != "" ]; then
+    cd ~/$dir
+  fi
+}
+
 function proj() { # find projects
   prev=$PWD
   dir=$(cd ~/Dev/ && fd . --maxdepth 2 --type d --type l | fzf --query "$*" --header="select to cd" --preview 'ls {}')
