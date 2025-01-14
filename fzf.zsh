@@ -2,10 +2,18 @@ source <(fzf --zsh)
 
 # global settings
 export FZF_DEFAULT_OPTS="\
-  --border --layout='reverse-list' \
+  --border \
+  --layout='reverse-list' \
   --preview 'bat --color "always" --line-range 0:300 {}' \
-  --pointer='->' --header='<C-c> or <ESC> to exit' \
-  --cycle"
+  --pointer='->' \
+  --header='<C-c> or <ESC> to exit' \
+  --cycle \
+  --color=bg+:#313244,spinner:#f5e0dc,hl:#f38ba8 \
+  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+  --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+  --color=selected-bg:#45475a \
+  --multi"
+
 export FZF_DEFAULT_COMMAND="fd --type f"
 
 function fzd() { fd . $* --type d | fzf } # find dir
