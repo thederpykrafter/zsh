@@ -23,7 +23,12 @@ function fzcd() { # find dir and cd
 }
 
 function recent() { # find recently opened dirs
-  cd $(dirs -lp | fzf --query "$*" --header="select to return to project" --preview '')
+  if [ ! -d /data/data/com.termux/files ]; 
+  then
+    cd $(dirs -lp | fzf --query "$*" --header="select to return to project" --preview '')
+  else
+    cd /data/data/com.termux/$(dirs -lp | sed 's/\/data\/data\/com.termux\///g' | fzf --query "$*" --header="select to return to project" --preview '')
+  fi
 }
 
 function proj() { # find projects
