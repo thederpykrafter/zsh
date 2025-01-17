@@ -15,6 +15,8 @@ function update() {
 
 alias setup="~/Dev/sh/universal-setup/setup.sh"
 
+alias killjava="killall -9 java"
+
 # cls
 alias cls='clear'
 
