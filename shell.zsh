@@ -43,4 +43,4 @@ function clean_vim() {
 # not needed if nvidia setup correctly
 #alias godot='godot --rendering-driver opengl3 &'
 
-~/.oh-my-zsh/custom/image.sh
+cat ~/.oh-my-zsh/custom/image
