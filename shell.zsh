@@ -3,6 +3,7 @@ CRYPTIC_THEME_SHOW_TIME=true
 
 function update() {
   if command -v yay &> /dev/null; then
+    yay -Syy
     yay -Syu --noconfirm
   elif command -v nala &> /dev/null; then
     nala update && nala upgrade -y
