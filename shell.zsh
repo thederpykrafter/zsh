@@ -49,8 +49,16 @@ alias vim='nvim'
 alias vi='nvim'
 alias tvi='NVIM_APPNAME=termux-nvim nvim'
 
+# clean nvim or provided nvim config name
 function clean_vim() {
-  rm -rf .cache/$1 .local/state/$1 .local/share/$1
+  if [ ! -z "$1" ];
+  then
+    rm -rf .cache/$1 .local/state/$1 .local/share/$1
+    echo "Cleaned .cache/$1 .local/state/$1 .local/share/$1"
+  else
+    rm -rf .cache/nvim .local/state/nvim .local/share/nvim
+    echo "Cleaned .cache/nvim .local/state/nvim .local/share/nvim"
+  fi
 }
 
 # not needed if nvidia setup correctly
