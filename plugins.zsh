@@ -16,10 +16,4 @@ if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-autopair ]; then
   source ~/.zshrc
 fi
 
-if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-wakatime ]; then
-  git clone https://github.com/wbingli/zsh-wakatime $ZSH_CUSTOM/plugins/zsh-wakatime
-  clear
-  source ~/.zshrc
-fi
-
 [[ ! -L ~/.zshrc ]] && rm -rf ~/.zshrc && ln -s ~/.oh-my-zsh/custom/.zshrc ~/
