@@ -61,6 +61,8 @@ function clean_vim() {
   fi
 }
 
+alias mc-shots="~/Dev/sh/prism-mc-screenshots/mc-shots"
+
 # not needed if nvidia setup correctly
 #alias godot='godot --rendering-driver opengl3 &'
 
