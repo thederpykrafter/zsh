@@ -21,10 +21,10 @@ alias killjava="killall -9 java"
 function code() {
   if [ -f /usr/bin/code-insiders ];
   then
-    /usr/bin/code-insiders
+    /usr/bin/code-insiders $*
   elif [ -f /usr/bin/code ];
   then
-    /usr/bin/code
+    /usr/bin/code $*
   else
     echo -e "\[91mPlease ensure [code || code-insiders] is installed properly.\[m"
   fi
