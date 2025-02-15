@@ -5,6 +5,9 @@ function update() {
   if command -v yay &> /dev/null; then
     yay -Syy
     yay -Syu --noconfirm
+  elif command -v pacman &> /dev/null; then
+    pacman -Syy
+    pacman -Syu --noconfirm
   elif command -v nala &> /dev/null; then
     nala update && nala upgrade -y
   elif command -v pkg &> /dev/null; then
