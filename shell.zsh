@@ -69,4 +69,9 @@ alias mc-shots="~/Dev/sh/prism-mc-screenshots/mc-shots"
 # not needed if nvidia setup correctly
 #alias godot='godot --rendering-driver opengl3 &'
 
-cat ~/.oh-my-zsh/custom/image
+random_image=`shuf -n1 -e \`fd . ~/.oh-my-zsh/custom/images/\``
+if grep "#\!/bin/" $random_image &> /dev/null; then
+  $random_image
+else
+  cat $random_image
+fi
