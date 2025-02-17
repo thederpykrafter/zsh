@@ -21,7 +21,7 @@ function ghinit() {
     git init && git add -A && git commit -m "init"
   fi
 
-  gh repo create $repo_name -s . --push --public #2> /dev/null || echo "Remote for \"$repo_name\" already exists"
+  gh repo create $repo_name -s . --push --public
 }
 
 # .gitignore
