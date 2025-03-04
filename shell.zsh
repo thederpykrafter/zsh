@@ -45,7 +45,7 @@ fi
 
 alias get-repos='~/Dev/sh/get-repos/get-repos.sh'
 
-alias sched='~/Dev/sh/work-sched/sched'
+alias sched='~/Dev/sh/work-sched/work-sched'
 
 # nvim alias
 alias vim='nvim'
