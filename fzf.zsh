@@ -105,6 +105,6 @@ function fzssh() {
   elif [[ $client == S20 ]]; then
     ssh u0_a34@10.0.0.223 -p 8022 -i id_rsa
   elif [[ $client == Endeavour ]]; then
-    ssh thederpykrafter@10.0.0.10 -i id_rsa
+    ssh thederpykrafter@10.0.0.72 -i id_rsa
   fi
 }
