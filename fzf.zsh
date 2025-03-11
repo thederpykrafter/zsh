@@ -98,7 +98,7 @@ alias fzvi='file=$(fzf) && [[ -n $file ]] && nvim $file'
 
 function fzssh() {
   all_clients="Flip4 S20 Endeavour"
-  client=`echo "$all_clients" | sed "s/ /\n/g" | fzf`
+  client=`echo "$all_clients" | sed "s/ /\n/g" | fzf --preview=`
 
   if [[ $client == Flip4 ]]; then
     ssh u0_a322@10.0.0.156 -p 8022 -i id_rsa
