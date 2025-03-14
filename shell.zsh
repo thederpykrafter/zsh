@@ -38,6 +38,8 @@ alias cls='clear'
 
 # reload zsh
 if [ -d ~/.termux ]; then
+  alias xdg-open='xdg-open --chooser'
+  alias termux-open='termux-open --chooser'
   alias reload='termux-reload-settings && source $ZSH_CUSTOM/.zshrc'
 else
   alias reload='source $ZSH_CUSTOM/.zshrc'
