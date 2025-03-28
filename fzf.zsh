@@ -84,14 +84,6 @@ function fzsh() { # find my .zsh files
   cd $prev
 }
 
-function makefiles() {
-  prev=$PWD
-  cd ~/Dev/c/Makefiles
-  file=~/Dev/c/Makefiles/$(fd --maxdepth 1 --type d | fzf --query "$*" --preview "bat {}Makefile")Makefile
-  cp $file $prev
-  cd $prev
-}
-
 # open vim with fzf
 alias vifz='file=$(fzf) && [[ -n $file ]] && nvim $file'
 alias fzvi='file=$(fzf) && [[ -n $file ]] && nvim $file'
