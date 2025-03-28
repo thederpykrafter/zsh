@@ -16,7 +16,7 @@ export FZF_DEFAULT_OPTS="\
 
 export FZF_DEFAULT_COMMAND="fd --type f"
 
-function fzd() { fd . $* --type d | fzf --preview 'ls {}'} # find dir
+function fzd() { fd . $* --type d | fzf --preview 'tree {}'} # find dir
 
 function fzcd() { # find dir and cd
   prev=$PWD
@@ -33,15 +33,15 @@ function fzcd() { # find dir and cd
 function recent() { # find recently opened dirs
   if [ ! -d /data/data/com.termux/files ];
   then
-    cd $(dirs -lp | fzf --query "$*" --header="select to return to project" --preview 'ls {}')
+    cd $(dirs -lp | fzf --query "$*" --header="select to return to project" --preview 'tree {}')
   else
-    cd /data/data/com.termux/$(dirs -lp | sed 's/\/data\/data\/com.termux\///g' | fzf --query "$*" --header="select to return to project" --preview 'ls {}')
+    cd /data/data/com.termux/$(dirs -lp | sed 's/\/data\/data\/com.termux\///g' | fzf --query "$*" --header="select to return to project" --preview 'tree {}')
   fi
 }
 
 function proj() { # find projects
   prev=$PWD
-  dir=$(cd ~/Dev/ && fd . --maxdepth 2 --type d --type l | fzf --query "$*" --header="select to cd" --preview 'ls {}')
+  dir=$(cd ~/Dev/ && fd . --maxdepth 2 --type d --type l | fzf --query "$*" --header="select to cd" --preview 'tree {}')
 
   if [ "$dir" != "" ]; then
     cd ~/Dev/$dir
@@ -56,7 +56,7 @@ function proj() { # find projects
 
 function conf() { # find projects
   prev=$PWD
-  dir=$(cd ~/.config/ && fd . --maxdepth 1 --type d --type l | fzf --query "$*" --header="select to cd" --preview 'ls {}')
+  dir=$(cd ~/.config/ && fd . --maxdepth 1 --type d --type l | fzf --query "$*" --header="select to cd" --preview 'tree {}')
 
   if [ "$dir" != "" ]; then
     cd ~/.config/$dir
