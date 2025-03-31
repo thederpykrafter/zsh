@@ -2,7 +2,11 @@
 # cd
 function cd() {
   builtin cd $1
-  if [ -f env/bin/activate ]; then
+  if [ -f .env/bin/activate ]; then
+    source .env/bin/activate
+  elif [ -f ./../.env/bin/activate ]; then
+    source ./../.env/bin/activate
+  elif [ -f env/bin/activate ]; then
     source env/bin/activate
   elif [ -f ./../env/bin/activate ]; then
     source ./../env/bin/activate
