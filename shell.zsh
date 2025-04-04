@@ -1,6 +1,11 @@
 ZSH_THEME="cryptic"
 CRYPTIC_THEME_SHOW_TIME=true
 
+if [ ! -L ~/.zshrc ]; then
+  rm -f ~/.zshrc
+  ln -s ~/.oh-my-zsh/.zshrc ~/.zshrc
+fi
+
 function update() {
   if command -v yay &> /dev/null; then
     yay -Syy
