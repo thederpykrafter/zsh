@@ -7,18 +7,32 @@ if [ ! -L ~/.zshrc ]; then
 fi
 
 function update() {
-  if command -v yay &> /dev/null; then
-    yay -Syy
-    yay -Syu --noconfirm
-  elif command -v pacman &> /dev/null; then
-    pacman -Syy
-    pacman -Syu --noconfirm
-  elif command -v nala &> /dev/null; then
-    nala update && nala upgrade -y
-  elif command -v pkg &> /dev/null; then
-    pkg update -y && pkg upgrade -y
-  elif command -v apt &> /dev/null; then
-    apt update -y && apt upgrade -y
+  function update_os() {
+    if command -v yay &> /dev/null; then
+      yay -Syy
+      yay -Syu --noconfirm
+    elif command -v pacman &> /dev/null; then
+      pacman -Syy
+      pacman -Syu --noconfirm
+    elif command -v nala &> /dev/null; then
+      nala update && nala upgrade -y
+    elif command -v pkg &> /dev/null; then
+      pkg update -y && pkg upgrade -y
+    elif command -v apt &> /dev/null; then
+      apt update -y && apt upgrade -y
+    fi
+  }
+
+  if [ -f ~/.lastupdate ]; then
+    last_update=`cat ~/.lastupdate`
+    today=`date +%j`
+    if [[ $last_update < $today ]]; then
+      update_os
+    else
+      echo "you already updated today bro"
+    fi
+  else
+    update_os
   fi
 }
 
