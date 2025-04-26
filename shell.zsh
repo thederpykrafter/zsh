@@ -21,6 +21,7 @@ function update() {
     elif command -v apt &> /dev/null; then
       apt update -y && apt upgrade -y
     fi
+    date +%j > ~/.lastupdate
   }
 
   if [ -f ~/.lastupdate ]; then
