@@ -30,7 +30,7 @@ function update() {
     if [[ $last_update < $today ]]; then
       update_os
     else
-      echo "you already updated today bro"
+      echo "you already updated today bro" | lolcat
     fi
   else
     update_os
