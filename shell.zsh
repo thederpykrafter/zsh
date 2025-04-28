@@ -91,15 +91,21 @@ alias mc-shots="~/Dev/sh/prism-mc-screenshots/mc-shots"
 # not needed if nvidia setup correctly
 #alias godot='godot --rendering-driver opengl3 &'
 
-alias sort-downloads="~/Dev/python/Organize-by-extensions/main.py"
-sort-downloads
-
 function welcome_art() {
   random_image=`shuf -n1 -e \`fd . ~/.oh-my-zsh/custom/images/\``
-  if grep "#\!/bin/" $random_image &> /dev/null; then
+  if grep "#\!/" $random_image &> /dev/null; then
     $random_image
   else
     cat $random_image
   fi
 }
 welcome_art
+
+alias sort-downloads="~/Dev/python/Organize-by-extensions/main.py"
+if [[ $(find ~/Downloads/ -maxdepth 1 -type f) != "" ]]; then
+  sort-downloads
+elif [ -d /data/data/com.termux ]; then
+  if [[ $(find ~/storage/downloads/ -maxdepth 1 -type f) != "" ]]; then
+    sort-downloads
+  fi
+fi
