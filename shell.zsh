@@ -60,9 +60,9 @@ alias cls='clear'
 if [ -d ~/.termux ]; then
   alias xdg-open='xdg-open --chooser'
   alias termux-open='termux-open --chooser'
-  alias reload='termux-reload-settings && source $ZSH_CUSTOM/.zshrc'
+  alias reload='termux-reload-settings && exec zsh'
 else
-  alias reload='source $ZSH_CUSTOM/.zshrc'
+  alias reload='exec zsh'
 fi
 
 alias get-repos='~/Dev/sh/get-repos/get-repos.sh'
