@@ -102,10 +102,10 @@ function welcome_art() {
 welcome_art
 
 alias sort-downloads="~/Dev/python/Organize-by-extensions/main.py"
-if [[ $(find ~/Downloads/ -maxdepth 1 -type f) != "" ]]; then
-  sort-downloads
-elif [ -d /data/data/com.termux ]; then
+if [ -d /data/data/com.termux ]; then
   if [[ $(find ~/storage/downloads/ -maxdepth 1 -type f) != "" ]]; then
     sort-downloads
   fi
+elif [[ $(find ~/Downloads/ -maxdepth 1 -type f) != "" ]]; then
+  sort-downloads
 fi
