@@ -13,3 +13,8 @@ checkPlugin "zsh-users/zsh-syntax-highlighting"
 checkPlugin "zsh-users/zsh-autosuggestions"
 checkPlugin "hlissner/zsh-autopair"
 checkPlugin "MichaelAquilina/zsh-you-should-use"
+
+# timer
+TIMER_FORMAT="[%d]"
+TIMER_PRECISION=1
+TIMER_THRESHOLD=0
