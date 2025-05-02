@@ -86,7 +86,11 @@ function cryptic_get_rprompt() {
     # git status
     local git_status=$(git --no-optional-locks status --porcelain 2> /dev/null | tail -n 1)
     [[ -n "$git_status" ]] && echo -n "%F{11}" || echo -n "%F{10}"
+    if git --no-optional-locks status -uno | grep "pull" &> /dev/null; then
+      echo -n "%F{12}"
+    fi
     echo -n "‹${git_branch}›%f"
+
   fi
 
   # timestamp 12hr HH:MM:SS AM/PM
