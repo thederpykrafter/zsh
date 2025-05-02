@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 cows=`which cowsay | sed 's/bin/share/'`/cows
 
