@@ -2,8 +2,8 @@
 function checkPlugin() {
   author=`echo $1 | sed 's/\/.*//'`
   plugin=`echo $1 | sed 's/.*\///'`
-  if [ ! -d ~/.oh-my-zsh/custom/plugins/$plugin ]; then
-    gh repo clone $author/$plugin ~/.oh-my-zsh/custom/plugins/$plugin
+  if [ ! -d ~/.config/zsh/plugins/$plugin ]; then
+    gh repo clone $author/$plugin ~/.config/zsh/plugins/$plugin
     source ~/.zshrc
     clear -x
   fi

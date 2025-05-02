@@ -92,7 +92,7 @@ alias mc-shots="~/Dev/sh/prism-mc-screenshots/mc-shots"
 #alias godot='godot --rendering-driver opengl3 &'
 
 function welcome_art() {
-  random_image=`shuf -n1 -e \`fd . ~/.oh-my-zsh/custom/images/\``
+  random_image=`shuf -n1 -e \`fd . $ZSH_CUSTOM/images/\``
   if grep "#\!/" $random_image &> /dev/null; then
     $random_image
   else
