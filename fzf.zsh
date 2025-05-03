@@ -47,7 +47,11 @@ function proj() { # find projects
     cd ~/Dev/$dir
     if [ -d .git ]; then
       git remote update
-      git status
+      if [[ `git status -s` != "" ]];then
+        git status
+      elif git status -uno | grep "pull" &> /dev/null; then
+        git status
+      fi
     fi
   else
     cd $prev
@@ -62,7 +66,11 @@ function conf() { # find projects
     cd ~/.config/$dir
     if [ -d .git ]; then
       git remote update
-      git status
+      if [[ `git status -s` != "" ]];then
+        git status
+      elif git status -uno | grep "pull" &> /dev/null; then
+        git status
+      fi
     fi
   else
     cd $prev
@@ -78,7 +86,11 @@ function fzsh() { # find my .zsh files
   if [ "$file" != "" ]; then
     nvim $file
     git remote update
-    git status
+    if [[ `git status -s` != "" ]];then
+      git status
+    elif git status -uno | grep "pull" &> /dev/null; then
+      git status
+    fi
   fi
 
   cd $prev
