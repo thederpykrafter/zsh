@@ -88,6 +88,8 @@ function clean_vim() {
 
 alias mc-shots="~/Dev/sh/prism-mc-screenshots/mc-shots"
 
+alias asciiquarium="/usr/bin/asciiquarium -t -s"
+
 # not needed if nvidia setup correctly
 #alias godot='godot --rendering-driver opengl3 &'
 
