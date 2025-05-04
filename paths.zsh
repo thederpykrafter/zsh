@@ -1,5 +1,4 @@
-
-if [[ -f /data/data/com.termux/files/home/.termux/termux.properties ]]; then
+if [[ -d /data/data/com.termux/ ]]; then
   # termux dev path
   export dev="/data/data/com.termux/files/home/storage/shared/Documents/Dev/"
 
@@ -15,12 +14,6 @@ else
 
   # add app images to path
   export PATH=$PATH:~/Applications
-
-  # nvm
-  [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-  # source /usr/share/nvm/nvm.sh
-  # source /usr/share/nvm/bash_completion
-  # source /usr/share/nvm/install-nvm-exec
 
   # opam
   [[ ! -r /home/thederpykrafter/.opam/opam-init/init.zsh ]] || source /home/thederpykrafter/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

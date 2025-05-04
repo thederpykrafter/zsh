@@ -1,5 +1,4 @@
-
-# cd
+# cd and source python env if found
 function cd() {
   builtin cd $1
   if [ -f .env/bin/activate ]; then
