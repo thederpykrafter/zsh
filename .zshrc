@@ -1,4 +1,4 @@
-test -z $TMUX && tmux
+if [ -t 0 ] && [[ -z $TMUX ]] && [[ $- = *i* ]]; then exec tmux; fi
 
 zstyle ':omz:*' aliases no
 zstyle ':completion:*' menu select
