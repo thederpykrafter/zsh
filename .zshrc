@@ -19,7 +19,6 @@ plugins=(
 	zsh-autopair
 	zsh-syntax-highlighting
 	timer
-	derp
 )
 
 source $ZSH/oh-my-zsh.sh
