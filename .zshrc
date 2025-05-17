@@ -9,7 +9,18 @@ ZSH_CUSTOM=$HOME/.config/zsh/
 ZSH_THEME="cryptic"
 CRYPTIC_THEME_SHOW_TIME=true
 
-plugins=(git git-auto-fetch fzf copybuffer zsh-you-should-use zsh-autosuggestions zsh-autopair zsh-syntax-highlighting timer)
+plugins=(
+	git
+	git-auto-fetch
+	fzf
+	copybuffer
+	zsh-you-should-use
+	zsh-autosuggestions
+	zsh-autopair
+	zsh-syntax-highlighting
+	timer
+	derp
+)
 
 source $ZSH/oh-my-zsh.sh
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
