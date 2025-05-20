@@ -45,6 +45,8 @@ if [ -d ~/.termux ]; then
 	alias recent-file-browser="am start -a android.intent.action.OPEN_DOCUMENT -d /storage/emulated/0 -t '*/*'"
 else
 	alias reload='exec zsh'
+	# default terminal
+	export TERMINAL='alacritty'
 fi
 
 alias get-repos='~/Dev/sh/get-repos/get-repos.sh'
