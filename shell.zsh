@@ -55,6 +55,8 @@ alias sched='~/Dev/sh/work-sched/work-sched &'
 alias vim='nvim'
 alias vi='nvim'
 alias tvi='NVIM_APPNAME=termux-nvim nvim'
+# nvim MANPAGER
+export MANPAGER='nvim +Man!'
 
 # clean nvim or provided nvim config name
 function clean_vim() {
