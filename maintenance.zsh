@@ -50,6 +50,18 @@ function maintenance() {
 
 		sudo journalctl --vacuum-time=7d
 		echo ""
+
+		echo ""
+		echo "----------------------------------------------------"
+		echo "CLEARING SYSTEM TRASH"
+		echo "----------------------------------------------------"
+
+		trash_size=`du -s ~/.local/share/Trash | cut -f 1 -d "	"`
+		if [[ $trash_size > 10737418240 ]]; then
+			rm -rf ~/.local/share/Trash/info/**
+			rm -rf ~/.local/share/Trash/files/**
+		fi
+
 	elif command -v pkg &> /dev/null; then
 		echo "\e[94mTodo:\e[m termux"
 	fi
