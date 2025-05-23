@@ -87,7 +87,7 @@ function welcome_art() {
 	if grep "#\!/" $random_image &> /dev/null; then
 		$random_image
 	else
-		cat $random_image
+		cat $random_image | lolcat
 	fi
 }
 welcome_art
