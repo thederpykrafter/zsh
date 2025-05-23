@@ -34,7 +34,7 @@ alias setup="~/Dev/sh/universal-setup/setup.sh"
 alias killjava="killall -9 java"
 
 # cls
-alias cls='clear'
+alias cls='clear -x'
 
 # reload zsh
 if [ -d ~/.termux ]; then
