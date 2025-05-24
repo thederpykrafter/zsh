@@ -86,9 +86,12 @@ function welcome_art() {
   random_image=`shuf -n1 -e \`fd . $ZSH_CUSTOM/images/\``
   if grep "#\!/" $random_image &> /dev/null; then
     $random_image
+  elif echo $random_image | grep "endeavour" &> /dev/null; then
+    cat $random_image
   else
     cat $random_image | lolcat
   fi
+  export LAST_WELCOME_ART=$random_image
 }
 welcome_art
 
