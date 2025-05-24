@@ -1,17 +1,17 @@
 function update() {
   function update_os() {
-    if command -v yay &> /dev/null; then
-      yay -Syy
-      yay -Syu --noconfirm
-    elif command -v pacman &> /dev/null; then
-      pacman -Syy
-      pacman -Syu --noconfirm
-    elif command -v nala &> /dev/null; then
+    if command -v nala &> /dev/null; then
       nala update && nala upgrade -y
     elif command -v pkg &> /dev/null; then
       pkg update -y && pkg upgrade -y
     elif command -v apt &> /dev/null; then
       apt update -y && apt upgrade -y
+    elif command -v yay &> /dev/null; then
+      yay -Syy
+      yay -Syu --noconfirm
+    elif command -v pacman &> /dev/null; then
+      pacman -Syy
+      pacman -Syu --noconfirm
     fi
     date +%j > ~/.lastupdate
   }
@@ -56,8 +56,8 @@ alias sched='~/Dev/sh/work-sched/work-sched &'
 # nvim alias
 alias vim='nvim'
 alias vi='nvim'
-alias tvi='NVIM_APPNAME=termux-nvim nvim'
-alias kvi='NVIM_APPNAME=kickstart.nvim nvim'
+# alias tvi='NVIM_APPNAME=termux-nvim nvim'
+# alias kvi='NVIM_APPNAME=kickstart.nvim nvim'
 # nvim default editor
 export EDITOR='nvim'
 # nvim MANPAGER
