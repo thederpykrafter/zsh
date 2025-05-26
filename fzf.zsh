@@ -110,7 +110,7 @@ function fzmc() {
   cd ~/.local/share/PrismLauncher/instances/
   instance=`fd --maxdepth 1 --type d | fzf --query "$*" --preview "tree {}"`
   if [ "$instance" != "" ]; then
-    cd instance
+    cd $instance
   else
     cd $prev
   fi
