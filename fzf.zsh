@@ -59,6 +59,19 @@ function proj() { # find projects
   fi
 }
 
+function dots() { # find projects
+  prev=$PWD
+  dot_file=$(cd ~ && fd -u --maxdepth 1 | grep "^\." | fzf --query "$*" --header="select to edit in vim" --preview 'tree {}')
+
+  if [[ $dot_file == "" ]]; then
+    cd $prev
+  else
+    nvim ~/$dot_file
+    cd $prev
+  fi
+}
+
+
 function conf() { # find projects
   prev=$PWD
   dir=$(cd ~/.config/ && fd . --maxdepth 1 --type d --type l | fzf --query "$*" --header="select to cd" --preview 'tree {}')
