@@ -20,81 +20,81 @@ export FZF_DEFAULT_COMMAND="fd --type f"
 function fzd() { fd . $* --type d | fzf --preview 'tree {}'} # find dir
 
 function fzcd() { # find dir and cd
-	prev=$PWD
+  prev=$PWD
 
-	if [ "$1" != "" ]; then
-		# cd into $1 first to shorten path in fzf
-		cd $1 && shift && cd $(fzd $PWD $@ || echo "$prev")
-	else
-		cd $(fzd || echo "$prev")
-	fi
+  if [ "$1" != "" ]; then
+    # cd into $1 first to shorten path in fzf
+    cd $1 && shift && cd $(fzd $PWD $@ || echo "$prev")
+  else
+    cd $(fzd || echo "$prev")
+  fi
 
 }
 
 function recent() { # find recently opened dirs
-	if [ ! -d /data/data/com.termux/files ];
-	then
-		cd $(dirs -lp | fzf --query "$*" --header="select to return to project" --preview 'tree {}')
-	else
-		cd /data/data/com.termux/$(dirs -lp | sed 's/\/data\/data\/com.termux\///g' | fzf --query "$*" --header="select to return to project" --preview 'tree {}')
-	fi
+  if [ ! -d /data/data/com.termux/files ];
+  then
+    cd $(dirs -lp | fzf --query "$*" --header="select to return to project" --preview 'tree {}')
+  else
+    cd /data/data/com.termux/$(dirs -lp | sed 's/\/data\/data\/com.termux\///g' | fzf --query "$*" --header="select to return to project" --preview 'tree {}')
+  fi
 }
 
 function proj() { # find projects
-	prev=$PWD
-	dir=$(cd ~/Dev/ && fd . --maxdepth 2 --type d --type l | fzf --query "$*" --header="select to cd" --preview 'tree {}')
+  prev=$PWD
+  dir=$(cd ~/Dev/ && fd . --maxdepth 2 --type d --type l | fzf --query "$*" --header="select to cd" --preview 'tree {}')
 
-	if [ "$dir" != "" ]; then
-		cd ~/Dev/$dir
-		if [ -d .git ]; then
-			git remote update
-			if [[ `git status -s` != "" ]];then
-				git status
-			elif git status -uno | grep "pull" &> /dev/null; then
-				git status
-			fi
-		fi
-	else
-		cd $prev
-	fi
+  if [ "$dir" != "" ]; then
+    cd ~/Dev/$dir
+    # if [ -d .git ]; then
+    # 	git remote update
+    # 	if [[ `git status -s` != "" ]];then
+    # 		git status
+    # 	elif git status -uno | grep "pull" &> /dev/null; then
+    # 		git status
+    # 	fi
+    # fi
+  else
+    cd $prev
+  fi
 }
 
 function conf() { # find projects
-	prev=$PWD
-	dir=$(cd ~/.config/ && fd . --maxdepth 1 --type d --type l | fzf --query "$*" --header="select to cd" --preview 'tree {}')
+  prev=$PWD
+  dir=$(cd ~/.config/ && fd . --maxdepth 1 --type d --type l | fzf --query "$*" --header="select to cd" --preview 'tree {}')
 
-	if [ "$dir" != "" ]; then
-		cd ~/.config/$dir
-		if [ -d .git ]; then
-			git remote update
-			if [[ `git status -s` != "" ]];then
-				git status
-			elif git status -uno | grep "pull" &> /dev/null; then
-				git status
-			fi
-		fi
-	else
-		cd $prev
-	fi
+  if [ "$dir" != "" ]; then
+    cd ~/.config/$dir
+    # if [ -d .git ]; then
+    # 	git remote update
+    # 	if [[ `git status -s` != "" ]];then
+    # 		git status
+    # 	elif git status -uno | grep "pull" &> /dev/null; then
+    # 		git status
+    # 	fi
+    # fi
+  else
+    cd $prev
+  fi
 }
 
 
 function fzsh() { # find my .zsh files
-	prev=$PWD
-	cd $ZSH_CUSTOM
-	file=$(fd -H | grep -v ".git" | fzf --query "$*" || cd "$prev")
+  prev=$PWD
+  cd $ZSH_CUSTOM
+  file=$(fd -H | grep -v ".git" | fzf --query "$*" || cd "$prev")
 
-	if [ "$file" != "" ]; then
-		nvim $file
-		git remote update
-		if [[ `git status -s` != "" ]];then
-			git status
-		elif git status -uno | grep "pull" &> /dev/null; then
-			git status
-		fi
-	fi
+  if [ "$file" != "" ]; then
+    nvim $file
+    # git remote update
+    # if [[ `git status -s` != "" ]];then
+    # 	git status
+    # elif git status -uno | grep "pull" &> /dev/null; then
+    # 	git status
+    # fi
+  fi
 
-	cd $prev
+  cd $prev
 }
 
 # open vim with fzf
@@ -102,25 +102,25 @@ alias vifz='file=$(fzf) && [[ -n $file ]] && nvim $file'
 alias fzvi='file=$(fzf) && [[ -n $file ]] && nvim $file'
 
 function fzssh() {
-	all_clients="Flip4 S20 Endeavour"
-	client=`echo "$all_clients" | sed "s/ /\n/g" | fzf --preview=`
+  all_clients="Flip4 S20 Endeavour"
+  client=`echo "$all_clients" | sed "s/ /\n/g" | fzf --preview=`
 
-	if [[ $client == Flip4 ]]; then
-		ssh u0_a322@10.0.0.156 -p 8022 -i id_rsa
-	elif [[ $client == S20 ]]; then
-		ssh u0_a34@10.0.0.223 -p 8022 -i id_rsa
-	elif [[ $client == Endeavour ]]; then
-		ssh thederpykrafter@10.0.0.72 -i id_rsa
-	fi
+  if [[ $client == Flip4 ]]; then
+    ssh u0_a322@10.0.0.156 -p 8022 -i id_rsa
+  elif [[ $client == S20 ]]; then
+    ssh u0_a34@10.0.0.223 -p 8022 -i id_rsa
+  elif [[ $client == Endeavour ]]; then
+    ssh thederpykrafter@10.0.0.72 -i id_rsa
+  fi
 }
 
 function fzmc() {
-	prev=$PWD
-	cd ~/.local/share/PrismLauncher/instances/
-	instance=`fd --maxdepth 1 --type d | fzf --query "$*" --preview "tree {}"`
-	if [ "$instance" != "" ]; then
-		cd instance
-	else
-		cd $prev
-	fi
+  prev=$PWD
+  cd ~/.local/share/PrismLauncher/instances/
+  instance=`fd --maxdepth 1 --type d | fzf --query "$*" --preview "tree {}"`
+  if [ "$instance" != "" ]; then
+    cd instance
+  else
+    cd $prev
+  fi
 }
