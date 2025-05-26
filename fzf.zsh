@@ -51,7 +51,7 @@ function proj() { # find projects
   fi
 }
 
-function dots() { # find projects
+function dots() { # find dotfiles
   prev=$PWD
   dot_file=$(cd ~ && fd -u --maxdepth 1 | grep "^\." | fzf --query "$*" --header="select to edit in vim" --preview 'tree {}')
 
