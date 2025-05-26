@@ -2,18 +2,23 @@ source <(fzf --zsh)
 
 # global settings
 export FZF_DEFAULT_OPTS="\
-  --border \
-  --layout='reverse-list' \
   --preview 'bat --color "always" --line-range 0:300 {}' \
-  --pointer='->' \
   --header='<C-c> or <ESC> to exit' \
   --cycle \
   --multi \
-  --color=bg+:#313244,spinner:#f5e0dc,hl:#f38ba8 \
-  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-  --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
-  --color=selected-bg:#45475a \
 "
+
+# fzf theme
+# https://vitormv.github.io/fzf-themes/
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color=fg:-1,fg+:#d0d0d0,bg:-1,bg+:#262626
+--color=hl:#f38ba8,hl+:#a485dd,info:#98c379,marker:#7199ee
+--color=prompt:#a485dd,spinner:#f5e0dc,pointer:#d7a65f,header:#f38ba8
+--color=gutter:#000000,border:#98c379,separator:#38a89d,label:#aeaeae
+--color=query:#d9d9d9
+--border="rounded" --border-label="" --preview-window="border-rounded" --prompt=" "
+--marker=" " --pointer=" " --separator="─" --scrollbar="│"
+--layout="reverse-list" --info="right"'
 
 export FZF_DEFAULT_COMMAND="fd --type f"
 
