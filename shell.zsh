@@ -75,6 +75,10 @@ function clean_vim() {
   fi
 }
 
+function kitten() {
+  /usr/bin/kitty -e /usr/bin/kitten $*
+}
+
 alias mc-shots="~/Dev/sh/prism-mc-screenshots/mc-shots"
 
 alias asciiquarium="/usr/bin/asciiquarium -t -s"
