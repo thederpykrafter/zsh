@@ -1,4 +1,6 @@
-if [ -t 0 ] && [[ -z $TMUX ]] && [[ $- = *i* ]]; then exec tmux; fi
+if [[ $TTY != /dev/tty1 ]] && [ -t 0 ] && [[ -z $TMUX ]] && [[ $- = *i* ]]; then
+  exec tmux
+fi
 
 zstyle ':omz:*' aliases no
 zstyle ':completion:*' menu select
@@ -10,15 +12,15 @@ ZSH_THEME="cryptic"
 CRYPTIC_THEME_SHOW_TIME=true
 
 plugins=(
-	git
-	git-auto-fetch
-	fzf
-	copybuffer
-	zsh-you-should-use
-	zsh-autosuggestions
-	zsh-autopair
-	zsh-syntax-highlighting
-	timer
+  git
+  git-auto-fetch
+  fzf
+  copybuffer
+  zsh-you-should-use
+  zsh-autosuggestions
+  zsh-autopair
+  zsh-syntax-highlighting
+  timer
 )
 
 source $ZSH/oh-my-zsh.sh
