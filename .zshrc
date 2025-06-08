@@ -17,6 +17,7 @@ plugins=(
   fzf
   copybuffer
   zsh-you-should-use
+  zsh-completion-generator
   zsh-autosuggestions
   zsh-autopair
   zsh-syntax-highlighting
