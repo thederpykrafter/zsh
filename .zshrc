@@ -7,7 +7,7 @@ zstyle ':completion:*' menu select
 zstyle ':omz:update' mode auto
 
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_CUSTOM=$HOME/.config/zsh/
+export ZSH_CUSTOM=$HOME/.config/zsh/
 ZSH_THEME="cryptic"
 CRYPTIC_THEME_SHOW_TIME=true
 
