@@ -1,5 +1,9 @@
 if [[ $TTY != /dev/tty1 ]] && [ -t 0 ] && [[ -z $TMUX ]] && [[ $- = *i* ]]; then
-  exec tmux
+  if tmux ls &>/dev/null; then
+    exec tmux new-session
+  else
+    exec tmux new-session -s main
+  fi
 fi
 
 zstyle ':omz:*' aliases no
