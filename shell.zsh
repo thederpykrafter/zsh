@@ -75,7 +75,7 @@ function clean_vim() {
   fi
 }
 
-alias grep="/usr/bin/grep --color"
+alias grep="grep --color=auto"
 
 function kitten() {
   /usr/bin/kitty -e /usr/bin/kitten $*
