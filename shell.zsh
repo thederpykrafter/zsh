@@ -77,9 +77,10 @@ function clean_vim() {
 
 alias grep="grep --color=auto"
 
-function kitten() {
-  /usr/bin/kitty -e /usr/bin/kitten $*
-}
+if command -v kitty &> /dev/null; then
+  # function kitten() { /usr/bin/kitty -e /usr/bin/kitten $* }
+  alias kitten="kitty -e /usr/bin/kitten"
+fi
 
 alias mc-shots="~/Dev/sh/prism-mc-screenshots/mc-shots"
 
