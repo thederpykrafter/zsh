@@ -12,8 +12,10 @@ zstyle ':omz:update' mode auto
 
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM=$HOME/.config/zsh/
-ZSH_THEME="cryptic"
-CRYPTIC_THEME_SHOW_TIME=true
+# ZSH_THEME="cryptic"
+# CRYPTIC_THEME_SHOW_TIME=true
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+eval "$(starship init zsh)"
 
 plugins=(
   git
