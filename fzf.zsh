@@ -1,28 +1,27 @@
 source <(fzf --zsh)
 
 # global settings
-export FZF_DEFAULT_OPTS="\
-  --preview 'bat --color "always" --line-range 0:300 {}' \
-  --header='<C-c> or <ESC> to exit' \
-  --cycle \
-  --multi \
+export FZF_DEFAULT_OPTS="
+--header='<C-c> or <ESC> to exit'
+--preview 'bat --color \"always\" --line-range 0:300 {}'
+--preview-window=\"border-rounded\"
+--border=\"rounded\" --border-label=\"fzf\"
+--layout=\"reverse-list\" --info=\"right\"
+--prompt=\" \" --marker=\" \" --pointer=\" \"
+--separator=\"─\" --scrollbar=\"│\"
+--cycle --multi
 "
 
-# fzf theme
-# https://vitormv.github.io/fzf-themes/
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
---color=fg:-1,fg+:#d0d0d0,bg:-1,bg+:#262626
---color=hl:#f38ba8,hl+:#a485dd,info:#98c379,marker:#7199ee
---color=prompt:#a485dd,spinner:#f5e0dc,pointer:#d7a65f,header:#f38ba8
---color=gutter:#000000,border:#98c379,separator:#38a89d,label:#aeaeae
---color=query:#d9d9d9
---border="rounded" --border-label="" --preview-window="border-rounded" --prompt=" "
---marker=" " --pointer=" " --separator="─" --scrollbar="│"
---layout="reverse-list" --info="right"'
+# pywal theme
+export FZF_DEFAULT_OPTS="
+$FZF_DEFAULT_OPTS
+--color fg:7,bg:0,hl:1,fg+:232,bg+:1,hl+:255
+--color info:7,prompt:2,spinner:1,pointer:232,marker:1
+"
 
 export FZF_DEFAULT_COMMAND="fd --type f"
 
-function fzd() { fd . $* --type d | fzf --preview 'tree {}'} # find dir
+function fzd() { fd . $* --type d | fzf --border-label="fzd" --preview 'tree {}'} # find dir
 
 function fzcd() { # find dir and cd
   prev=$PWD
@@ -41,13 +40,13 @@ function recent() { # find recently opened dirs
   then
     cd $(dirs -lp | fzf --query "$*" --header="select to return to project" --preview 'tree {}')
   else
-    cd /data/data/com.termux/$(dirs -lp | sed 's/\/data\/data\/com.termux\///g' | fzf --query "$*" --header="select to return to project" --preview 'tree {}')
+    cd /data/data/com.termux/$(dirs -lp | sed 's/\/data\/data\/com.termux\///g' | fzf --border-label="recent" --query "$*" --header="select to return to project" --preview 'tree {}')
   fi
 }
 
 function proj() { # find projects
   prev=$PWD
-  dir=$(cd ~/Dev/ && fd . --maxdepth 2 --type d --type l | fzf --query "$*" --header="select to cd" --preview 'tree {}')
+  dir=$(cd ~/Dev/ && fd . --maxdepth 2 --type d --type l | fzf --query "$*" --header="select to cd" --border-label="proj" --preview 'tree {}')
 
   if [ "$dir" != "" ]; then
     cd ~/Dev/$dir
@@ -58,7 +57,7 @@ function proj() { # find projects
 
 function dots() { # find dotfiles
   prev=$PWD
-  dot_file=$(cd ~ && fd -u --maxdepth 1 | grep "^\." | fzf --query "$*" --header="select to edit in vim" --preview 'tree {}')
+  dot_file=$(cd ~ && fd -u --maxdepth 1 | grep "^\." | fzf --query "$*" --header="select to edit in vim" --border-label="dots" --preview 'tree {}')
 
   if [[ $dot_file == "" ]]; then
     cd $prev
@@ -71,7 +70,7 @@ function dots() { # find dotfiles
 
 function conf() { # find projects
   prev=$PWD
-  dir=$(cd ~/.config/ && fd . --maxdepth 1 --type d --type l | fzf --query "$*" --header="select to cd" --preview 'tree {}')
+  dir=$(cd ~/.config/ && fd . --maxdepth 1 --type d --type l | fzf --query "$*" --header="select to cd" --border-label="conf" --preview 'tree {}')
 
   if [ "$dir" != "" ]; then
     cd ~/.config/$dir
@@ -84,7 +83,7 @@ function conf() { # find projects
 function fzsh() { # find my .zsh files
   prev=$PWD
   cd $ZSH_CUSTOM
-  file=$(fd -H | grep -v ".git" | fzf --query "$*" || cd "$prev")
+  file=$(fd -H | grep -v ".git" | fzf --border-label="fzsh" --query "$*" || cd "$prev")
 
   if [ "$file" != "" ]; then
     nvim $file
@@ -94,12 +93,12 @@ function fzsh() { # find my .zsh files
 }
 
 # open vim with fzf
-alias vifz='file=$(fzf) && [[ -n $file ]] && nvim $file'
-alias fzvi='file=$(fzf) && [[ -n $file ]] && nvim $file'
+alias vifz='file=$(fzf --border-label="vifz") && [[ -n $file ]] && nvim $file'
+alias fzvi='file=$(fzf --border-label="fzvi") && [[ -n $file ]] && nvim $file'
 
 function fzssh() {
   all_clients="Flip4 S20 Endeavour"
-  client=`echo "$all_clients" | sed "s/ /\n/g" | fzf --preview=`
+  client=`echo "$all_clients" | sed "s/ /\n/g" | fzf --border-label="fzssh" --preview=`
 
   if [[ $client == Flip4 ]]; then
     ssh u0_a322@10.0.0.156 -p 8022 -i id_rsa
@@ -113,7 +112,7 @@ function fzssh() {
 function fzmc() {
   prev=$PWD
   cd ~/.local/share/PrismLauncher/instances/
-  instance=`fd --maxdepth 1 --type d | fzf --query "$*" --preview "tree {}"`
+  instance=`fd --maxdepth 1 --type d | fzf --border-label="fzmc" --query "$*" --preview "tree {}"`
   if [ "$instance" != "" ]; then
     cd $instance
   else

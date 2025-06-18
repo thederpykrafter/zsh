@@ -9,7 +9,7 @@ fi
 
 # pywal theme
 [[ -z $USER ]] && export USER=`whoami`
-[[ -d ~/.cache/wal/sequences ]] && (cat ~/.cache/wal/sequences &)
+[[ -d ~/.cache/wal/sequences ]] && (cat ~/.cache/wal/sequences &) &&source ~/.cache/wal/colors-tty.sh
 
 zstyle ':omz:*' aliases no
 zstyle ':completion:*' menu select
