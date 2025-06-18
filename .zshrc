@@ -7,7 +7,7 @@ if [[ $TTY != /dev/tty1 ]] && [ -t 0 ] && [[ -z $TMUX ]] && [[ $- = *i* ]]; then
 fi
 
 # pywal theme
-(cat ~/.cache/wal/sequences &)
+[[ -d ~/.cache/wal/sequences ]] && (cat ~/.cache/wal/sequences &)
 
 zstyle ':omz:*' aliases no
 zstyle ':completion:*' menu select
