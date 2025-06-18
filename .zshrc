@@ -1,3 +1,4 @@
+# !=TTY1 && ==STDIN && !=TMUX && ==INTERACTIVE
 if [[ $TTY != /dev/tty1 ]] && [ -t 0 ] && [[ -z $TMUX ]] && [[ $- = *i* ]]; then
   if tmux ls &>/dev/null; then
     exec tmux new-session
