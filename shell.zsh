@@ -29,7 +29,7 @@ function update() {
   fi
 }
 
-alias setup="~/Dev/sh/universal-setup/setup.sh"
+alias setup="~/Dev/bash/universal-setup/setup.sh"
 
 alias killjava="killall -9 java"
 
@@ -49,9 +49,9 @@ else
   export TERMINAL='kitty'
 fi
 
-alias get-repos='~/Dev/sh/get-repos/get-repos.sh'
+alias get-repos='~/Dev/bash/get-repos/get-repos.sh'
 
-alias sched='~/Dev/sh/work-sched/work-sched &'
+alias sched='~/Dev/bash/work-sched/work-sched &'
 
 # nvim alias
 alias vim='nvim'
@@ -82,7 +82,7 @@ if command -v kitty &> /dev/null; then
   alias kitten="kitty -e /usr/bin/kitten"
 fi
 
-alias mc-shots="~/Dev/sh/prism-mc-screenshots/mc-shots"
+alias mc-shots="~/Dev/bash/prism-mc-screenshots/mc-shots"
 
 alias asciiquarium="/usr/bin/asciiquarium -t -s"
 

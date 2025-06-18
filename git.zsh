@@ -58,4 +58,4 @@ function gittemplate() {
   fi
 }
 
-alias nogit="~/Dev/sh/nogit/nogit.sh"
+alias nogit="~/Dev/bash/nogit/nogit.sh"
