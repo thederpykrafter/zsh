@@ -27,7 +27,6 @@ plugins=(
   zsh-autosuggestions
   zsh-autopair
   zsh-syntax-highlighting
-  timer
 )
 
 source $ZSH/oh-my-zsh.sh
