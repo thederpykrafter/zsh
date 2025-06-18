@@ -21,6 +21,7 @@ export ZSH_CUSTOM=$HOME/.config/zsh/
 # CRYPTIC_THEME_SHOW_TIME=true
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 eval "$(starship init zsh)"
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 plugins=(
   git
