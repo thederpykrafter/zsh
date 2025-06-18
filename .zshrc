@@ -6,6 +6,9 @@ if [[ $TTY != /dev/tty1 ]] && [ -t 0 ] && [[ -z $TMUX ]] && [[ $- = *i* ]]; then
   fi
 fi
 
+# pywal theme
+(cat ~/.cache/wal/sequences &)
+
 zstyle ':omz:*' aliases no
 zstyle ':completion:*' menu select
 zstyle ':omz:update' mode auto
