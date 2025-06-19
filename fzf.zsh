@@ -3,20 +3,21 @@ source <(fzf --zsh)
 # global settings
 export FZF_DEFAULT_OPTS="
 --header='<C-c> or <ESC> to exit'
---preview 'bat --color \"always\" --line-range 0:300 {}'
---preview-window=\"border-rounded\"
---border=\"rounded\" --border-label=\"fzf\"
---layout=\"reverse-list\" --info=\"right\"
---prompt=\" \" --marker=\" \" --pointer=\" \"
---separator=\"─\" --scrollbar=\"│\"
+--preview \"bat --color 'always' --line-range 0:300 {}\"
+--preview-window='border-rounded'
+--border='rounded' --border-label='fzf'
+--layout='reverse' --info='right'
+--prompt=' ' --marker=' ' --pointer=' '
+--separator='─' --scrollbar='│'
 --cycle --multi
 "
 
 # pywal theme
 export FZF_DEFAULT_OPTS="
 $FZF_DEFAULT_OPTS
---color fg:7,bg:0,hl:1,fg+:232,bg+:1,hl+:255
---color info:7,prompt:2,spinner:1,pointer:232,marker:1
+--color fg:7,bg:-1,hl:1,fg+:255,bg+:2,hl+:232
+--color info:7,prompt:5,spinner:1,pointer:232
+--color marker:5,gutter:-1,label:2,header:4
 "
 
 export FZF_DEFAULT_COMMAND="fd --type f"
