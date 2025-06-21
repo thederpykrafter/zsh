@@ -1,6 +1,6 @@
 # !=TTY1 && ==STDIN && !=TMUX && ==INTERACTIVE
 if [[ $TTY != /dev/tty1 ]] && [ -t 0 ] && [[ -z $TMUX ]] && [[ $- = *i* ]]; then
-  if tmux ls &>/dev/null; then
+  if tmux ls &> /dev/null; then
     exec tmux new-session
   else
     exec tmux new-session -s main
@@ -8,7 +8,7 @@ if [[ $TTY != /dev/tty1 ]] && [ -t 0 ] && [[ -z $TMUX ]] && [[ $- = *i* ]]; then
 fi
 
 # pywal theme
-[[ -z $USER ]] && export USER=`whoami`
+[[ -z $USER ]] && export USER=$(whoami)
 [[ -d ~/.cache/wal ]] && (cat ~/.cache/wal/sequences &)
 [[ -d ~/.cache/wal ]] && source ~/.cache/wal/colors-tty.sh
 
@@ -37,4 +37,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-fpath+=~/.zfunc; autoload -Uz compinit; compinit
+fpath+=~/.zfunc
+autoload -Uz compinit
+compinit
