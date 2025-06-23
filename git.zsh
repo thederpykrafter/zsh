@@ -1,5 +1,5 @@
 # lazygit
-alias gg="tmux new-window lazygit"
+alias gg="tmux new-window lazygit | lazygit"
 
 # git top level
 alias cg='cd `git rev-parse --show-toplevel`'
