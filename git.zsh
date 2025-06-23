@@ -40,11 +40,11 @@ function mygit() {
 
 # fuzzy search github repos
 function myrepos() {
-  gh repo list -L 200 | awk '{print $1}' | \
-    sed 's/thederpykrafter\///' | fzf --query "$*" --preview ""
+  gh repo list -L 200 | awk '{print $1}' \
+    | sed 's/thederpykrafter\///' | fzf --query "$*" --preview ""
 }
 function lazyclone() {
-  gitclone `myrepos`
+  gitclone $(myrepos)
 }
 
 function gittemplate() {
