@@ -16,5 +16,5 @@ else
 	export PATH=$PATH:~/Applications
 
 	# opam
-	[[ ! -r /home/thederpykrafter/.opam/opam-init/init.zsh ]] || source /home/thederpykrafter/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+	[[ ! -r /home/thederpykrafter/.opam/opam-init/init.zsh ]] || source /home/thederpykrafter/.opam/opam-init/init.zsh >/dev/null 2>/dev/null
 fi

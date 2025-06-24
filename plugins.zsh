@@ -1,11 +1,11 @@
 # checkPlugin "author/plugin"
 function checkPlugin() {
-  author=`echo $1 | sed 's/\/.*//'`
-  plugin=`echo $1 | sed 's/.*\///'`
-  if [ ! -d ~/.config/zsh/plugins/$plugin ]; then
-    gh repo clone $author/$plugin ~/.config/zsh/plugins/$plugin
-    exec zsh
-  fi
+	author=$(echo $1 | sed 's/\/.*//')
+	plugin=$(echo $1 | sed 's/.*\///')
+	if [ ! -d ~/.config/zsh/plugins/$plugin ]; then
+		gh repo clone $author/$plugin ~/.config/zsh/plugins/$plugin
+		exec zsh
+	fi
 }
 
 checkPlugin "zsh-users/zsh-syntax-highlighting"

@@ -1,5 +1,5 @@
 function maintenance() {
-	if command -v yay &> /dev/null; then
+	if command -v yay &>/dev/null; then
 		# References: Fernando Cejas (https://fernandocejas.com/blog/engineering/2022-03-30-arch-linux-system-maintance/)
 		echo "----------------------------------------------------"
 		echo "UPDATING SYSTEM"
@@ -56,13 +56,13 @@ function maintenance() {
 		echo "CLEARING SYSTEM TRASH"
 		echo "----------------------------------------------------"
 
-		trash_size=`du -s ~/.local/share/Trash | cut -f 1 -d "	"`
+		trash_size=$(du -s ~/.local/share/Trash | cut -f 1 -d "	")
 		if [[ $trash_size > 10737418240 ]]; then
 			rm -rf ~/.local/share/Trash/info/**
 			rm -rf ~/.local/share/Trash/files/**
 		fi
 
-	elif command -v pkg &> /dev/null; then
+	elif command -v pkg &>/dev/null; then
 		echo "\e[94mTodo:\e[m termux"
 	fi
 }
