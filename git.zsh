@@ -1,5 +1,11 @@
 # lazygit
-alias gg="tmux new-window lazygit | lazygit"
+function gg() {
+	if [[ $($TMUX) ]]; then
+		tmux new-window lazygit
+	else
+		lazygit
+	fi
+}
 
 # git top level
 alias cg='cd `git rev-parse --show-toplevel`'
