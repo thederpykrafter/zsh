@@ -40,11 +40,22 @@ alias cls='clear -x'
 if [ -d ~/.termux ]; then
   alias xdg-open='xdg-open --chooser'
   alias termux-open='termux-open --chooser'
-  alias reload='termux-reload-settings && exec zsh'
+  function reload() {
+    termux-reload-settings
+    if [[ $(tmux info) ]]; then
+      tmux source-file ~/.config/tmux/tmux.conf && tmux display "Config reloaded!" &
+    fi
+    exec zsh
+  }
   alias file-browser='am start -a android.intent.action.VIEW -d "content://com.android.externalstorage.documents/root/primary"'
   alias recent-file-browser="am start -a android.intent.action.OPEN_DOCUMENT -d /storage/emulated/0 -t '*/*'"
 else
-  alias reload='exec zsh'
+  function reload() {
+    if [[ $(tmux info) ]]; then
+      tmux source-file ~/.config/tmux/tmux.conf && tmux display "Config reloaded!" &
+    fi
+    exec zsh
+  }
   # default terminal
   export TERMINAL='kitty'
 fi
