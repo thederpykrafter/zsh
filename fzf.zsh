@@ -22,7 +22,7 @@ $FZF_DEFAULT_OPTS
 
 export FZF_DEFAULT_COMMAND="fd --type f"
 
-function fzd() { fd . $* --type d | fzf --border-label="fzd" --preview 'tree {}'} # find dir
+function fzd() { fd . $* -u --type d | fzf --border-label="fzd" --preview 'tree {}'} # find dir
 
 function fzcd() { # find dir and cd
   prev=$PWD
