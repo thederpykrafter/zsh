@@ -1,14 +1,14 @@
 function test_colors_zsh() {
-	color=0
-	while [[ $color -lt 256 ]]; do
-		print -Pn "%K{$color} $color %k"
-		color=$((color + 1))
-	done
-	print
+  color=0
+  while [[ $color -lt 256 ]]; do
+    print -Pn "%K{$color} $color %k"
+    color=$((color + 1))
+  done
+  print
 }
 
 function test_colors_ansi() {
-	cat <<EOF
+  cat << EOF
 |fg       |fg_bright|bg     |bg_bright
 |30 [30m[47m  [40m  [m|90 [90m[47m  [40m  [m|40 [40m [37m[30m [m|100 [100m [37m[30m [m
 |31 [31m[47m  [40m  [m|91 [91m[47m  [40m  [m|41 [41m [37m[30m [m|101 [101m [37m[30m [m
