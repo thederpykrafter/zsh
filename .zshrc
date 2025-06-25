@@ -1,10 +1,10 @@
-# !=TTY1 && ==STDIN && !=TMUX && ==INTERACTIVE
+# !=KITTY !=TTY1 && ==STDIN && !=TMUX && ==INTERACTIVE
 if [[ $TERM != "xterm-kitty" ]] && [[ $TTY != /dev/tty1 ]] && [ -t 0 ] && [[ -z $TMUX ]] && [[ $- = *i* ]]; then
-  if tmux ls &> /dev/null; then
-    exec tmux new-session
-  else
-    exec tmux new-session -s main
-  fi
+	if tmux ls &>/dev/null; then
+		exec tmux new-session
+	else
+		exec tmux new-session -s main
+	fi
 fi
 
 # pywal theme
@@ -25,15 +25,15 @@ eval "$(starship init zsh)"
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 plugins=(
-  git
-  git-auto-fetch
-  fzf
-  copybuffer
-  zsh-you-should-use
-  zsh-completion-generator
-  zsh-autosuggestions
-  zsh-autopair
-  zsh-syntax-highlighting
+	git
+	git-auto-fetch
+	fzf
+	copybuffer
+	zsh-you-should-use
+	zsh-completion-generator
+	zsh-autosuggestions
+	zsh-autopair
+	zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
