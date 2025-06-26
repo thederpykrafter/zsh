@@ -1,7 +1,15 @@
 function test_colors_zsh() {
   color=0
   while [[ $color -lt 256 ]]; do
-    print -Pn "%K{$color} $color %k"
+    if [[ $color -le 9 ]]; then
+      print -Pn "%F{7}|  $color%K{$color}  %k%f"
+    elif [[ $color -le 99 ]]; then
+      print -Pn "%F{7}| $color%K{$color}  %k%f"
+    else
+      print -Pn "%F{7}|$color%K{$color}  %k%f"
+    fi
+
+    [[ $((($color + 1) % 8)) == 0 ]] && print
     color=$((color + 1))
   done
   print
