@@ -1,3 +1,27 @@
+function test_colors_rainbow() {
+
+  if [[ $(tput cols) -gt 128 ]]; then
+    color=0
+    color2=128
+    while [[ $color -lt 128 ]]; do
+      print -Pn "%K{$color}%F{$color2}▄%k%f"
+      color=$((color + 1))
+      color2=$((color2 + 1))
+      [[ $(($color % 128)) == 0 ]] && print
+    done
+    print
+  else
+    color=0
+    while [[ $color -lt 256 ]]; do
+      color2=$((color + 8))
+      print -Pn "%K{$color} %k"
+      color=$((color + 1))
+      [[ $(((color) % 16)) == 0 ]] && print
+    done
+    print
+  fi
+}
+
 function test_colors_zsh() {
   color=0
   while [[ $color -lt 256 ]]; do
