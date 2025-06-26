@@ -42,7 +42,7 @@ if [ -d ~/.termux ]; then
   alias termux-open='termux-open --chooser'
   function reload() {
     termux-reload-settings
-    if [[ $(tmux info) ]]; then
+    if [[ $TMUX ]]; then
       tmux source-file ~/.config/tmux/tmux.conf && tmux display "Config reloaded!" &
     fi
     exec zsh
@@ -51,7 +51,7 @@ if [ -d ~/.termux ]; then
   alias recent-file-browser="am start -a android.intent.action.OPEN_DOCUMENT -d /storage/emulated/0 -t '*/*'"
 else
   function reload() {
-    if [[ $(tmux info) ]]; then
+    if [[ $TMUX ]]; then
       tmux source-file ~/.config/tmux/tmux.conf && tmux display "Config reloaded!" &
     fi
     exec zsh

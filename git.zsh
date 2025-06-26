@@ -1,6 +1,6 @@
 # lazygit
 function gg() {
-  if [[ $($TMUX) ]]; then
+  if [[ $TMUX ]]; then
     tmux new-window lazygit
   else
     lazygit
