@@ -43,7 +43,7 @@ if [ -d ~/.termux ]; then
   function reload() {
     termux-reload-settings
     if [[ $TMUX ]]; then
-      tmux source-file ~/.config/tmux/tmux.conf && tmux display "Config reloaded!" &
+      tmux source-file ~/.config/tmux/tmux.conf
     fi
     exec zsh
   }
@@ -52,7 +52,7 @@ if [ -d ~/.termux ]; then
 else
   function reload() {
     if [[ $TMUX ]]; then
-      tmux source-file ~/.config/tmux/tmux.conf && tmux display "Config reloaded!" &
+      tmux source-file ~/.config/tmux/tmux.conf 
     fi
     exec zsh
   }
