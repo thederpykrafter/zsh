@@ -52,12 +52,13 @@ if [ -d ~/.termux ]; then
 else
   function reload() {
     if [[ $TMUX ]]; then
-      tmux source-file ~/.config/tmux/tmux.conf 
+      tmux source-file ~/.config/tmux/tmux.conf
     fi
     exec zsh
   }
   # default terminal
   export TERMINAL='kitty'
+  export LC_ALL=en_US
 fi
 
 alias get-repos='~/Dev/bash/get-repos/get-repos.sh'
