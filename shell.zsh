@@ -56,9 +56,6 @@ else
     fi
     exec zsh
   }
-  # default terminal
-  export TERMINAL='kitty'
-  export LC_ALL=en_US
 fi
 
 alias get-repos='~/Dev/bash/get-repos/get-repos.sh'
