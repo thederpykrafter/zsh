@@ -7,6 +7,16 @@ if [[ $TERM != "xterm-kitty" ]] && [[ $TTY != /dev/tty1 ]] && [ -t 0 ] && [[ -z 
   fi
 fi
 
+if [[ -d /data/data/com.termux ]]; then
+  termux-notification-list | jq -r '.[] | select(.id == 1337).content' | grep -qF 'wake lock held' && locked="true" || locked="false"
+  if [ "$locked" = "false" ]; then
+    echo "Enabling wake lock"
+    termux-wake-lock
+  else
+    echo "Wake lock enabled"
+  fi
+fi
+
 # pywal theme
 [[ -z $USER ]] && export USER=$(whoami)
 [[ -d ~/.cache/wal ]] && (cat ~/.cache/wal/sequences &)
