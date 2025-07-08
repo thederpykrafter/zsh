@@ -23,6 +23,15 @@ alias cd....='cd ../../..'
 # lsd
 alias ls='lsd --group-dirs first'
 
+if [[ -d /data/data/com.termux ]] \
+  && [[ $TMUX ]] \
+  && [[ $(tmux list-sessions | wc -l) == 1 ]] \
+  && [[ $(tmux list-panes | wc -l) == 1 ]] \
+  && [[ $(tmux list-windows | wc -l) == 1 ]] \
+  && [[ $(termux-notification-list | jq -r '.[] | select(.id == 1337).content' | awk '{print $1}') == 1 ]]; then
+
+  alias exit='termux-wake-unlock && builtin exit'
+fi
 # vim like exit
 alias :q='exit'
 alias :wq='exit'
